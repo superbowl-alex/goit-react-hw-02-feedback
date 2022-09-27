@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-export class App extends Component {
+import Statistics from './Statistics';
+import Section from './Section/Section';
+import FeedbackOptions from './FeedbackOptions';
+
+export default class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
+
+  keysOfState = Object.keys(this.state);
 
   handleClick = key => {
     this.setState(prevState => {
@@ -13,7 +19,7 @@ export class App extends Component {
   };
 
   countTotalFeedback = () => {
-    const count = Object.keys(this.state).reduce((total, key) => {
+    const count = this.keysOfState.reduce((total, key) => {
       return total + this.state[key];
     }, 0);
     return count;
@@ -27,27 +33,25 @@ export class App extends Component {
   };
 
   render() {
+    const { good, neutral, bad } = this.state;
     return (
-      <div>
-        <h2>Please leave feedback</h2>
-        <div>
-          {Object.keys(this.state).map(key => (
-            <button key={key} onClick={() => this.handleClick(key)}>
-              {key}
-            </button>
-          ))}
-        </div>
-        <h2>Statistics</h2>
-        <div>
-          {Object.keys(this.state).map(key => (
-            <div key={key}>
-              {key}: {this.state[key]}
-            </div>
-          ))}
-        </div>
-        <div>Total: {this.countTotalFeedback()}</div>
-        <div>Positive fidback: {this.countPositiveFeedbackPercentage()}%</div>
-      </div>
+      <>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={this.keysOfState}
+            onLeaveFeedback={this.handleClick}
+          />
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={this.countTotalFeedback}
+            positivePercentage={this.countPositiveFeedbackPercentage}
+          />
+        </Section>
+      </>
     );
   }
 }
