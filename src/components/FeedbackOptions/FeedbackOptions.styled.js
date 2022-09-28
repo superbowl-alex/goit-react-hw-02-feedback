@@ -2,24 +2,24 @@ import styled from '@emotion/styled';
 export const Button = styled.button`
   display: inline-block;
   width: 100px;
-  padding: 5px;
-  border: 1px solid grey;
-  border-radius: 4px;
-  background-color: #ffffff;
-  font-size: 24px;
-  line-height: 1.2;
+  padding: ${p => p.theme.space[2]}px;
+  border: none;
+  border-radius: ${p => p.theme.radii.normal};
+  background-color: ${p => p.theme.colors.darkBlue};
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
   text-transform: capitalize;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 250ms linear;
 
   &:not(:last-child) {
-    margin-right: 10px;
+    margin-right: ${p => p.theme.space[3]}px;
   }
 
-  &:hover,
-  :focus {
-    background-color: azure;
+  &:hover {
     transform: scale(1.1);
+    box-shadow: ${p => p.theme.shadows.deep};
   }
 `;

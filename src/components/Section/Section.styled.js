@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 
 export const SectionTitle = styled.h2`
-  margin-bottom: 15px;
-  font-size: 32px;
-  line-height: 1.2;
+  margin-bottom: ${p => p.theme.space[4]}px;
+  font-family: ${p => p.theme.fonts.heading};
+  font-size: ${p => p.theme.fontSizes.xl};
+  line-height: ${p => p.theme.lineHeights.heading};
+  letter-spacing: ${p => p.theme.letterSpacings.wide};
+  color: ${p => p.theme.colors.deepBlue};
 `;
 
-export const WrapSection = styled.div`
-  padding: 20px;
-  font-size: 24px;
-  line-height: 1.2;
+export const WrapSection = styled.section`
+  padding: ${p => p.theme.space[4]}px;
 `;
