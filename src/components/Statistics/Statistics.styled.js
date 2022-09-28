@@ -10,6 +10,6 @@ export const StatList = styled.ul`
 
 export const StatItem = styled.li`
   &:not(:last-child) {
-    margin-bottom: ${p => p.theme.space[4]};
+    margin-bottom: ${p => p.theme.space[3]}px;
   }
 `;
