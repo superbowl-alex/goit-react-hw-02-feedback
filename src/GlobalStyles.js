@@ -11,6 +11,7 @@ const GlobalStyles = () => {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           box-sizing: border-box;
+          background-color: rgb(229, 246, 246);
         }
 
         h1,
