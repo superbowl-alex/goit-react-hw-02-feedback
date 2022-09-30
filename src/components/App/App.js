@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GlobalStyles from 'GlobalStyles';
 import Statistics from '../Statistics';
 import Section from '../Section/Section';
 import FeedbackOptions from '../FeedbackOptions';
@@ -38,6 +39,7 @@ export default class App extends Component {
     const { good, neutral, bad } = this.state;
     return (
       <Container>
+        <GlobalStyles />
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.keysOfState}
